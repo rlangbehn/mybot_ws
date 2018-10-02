@@ -1,10 +1,46 @@
-# mybot_ws
-URDF model for Gazebo integrated with ROS
+# Melodic mybot_ws on docker
+Forked from : [richardw05/mybot_ws](https://github.com/richardw05/mybot_ws)
 
-This repository has several branches. Please checkout the appropriate branch for your needs. <br>
-1) <strong>base</strong> - create simple URDF model <br>
-2) <strong>base_sensors</strong> - add sensors to robot <br>
-3) <strong>navigation</strong> - enable autonomous navigation
+## The Goal
 
-For more information on running the code:  <br>
-http://moorerobots.com/blog/post/6
+To make this great example of a simple but complete ROS/Gazebo implementation work with ROS Melodic and run on docker on mac, linux and probably windows
+
+## Requirements
+
+* Docker (created with docker 18)
+* homebrew
+* gazebo
+
+## Hitting the ground and running
+
+Todo
+
+## Todo
+
+This list will go away
+
+1. migrate mybot_ws to melodic
+1. make it run in docker (single container)
+1. connect video into docker
+1. make it interract with gazebo on mac (host-only network)
+1. make gazebo work in a container
+1. make gazebo work with remote video
+1. make it interract with gazebo in container (host-only network)
+1. make it all automatable
+1. document
+
+## Licence
+
+This is a fork of someone else's work, there is no license except that by using this repo, you agree that the contributors are not at all to blame for any outcomes; good, bad, or otherwise that you may create through the use of this repo.
+
+## Credits
+
+Credit goes to:
+
+* the original repo creator [richardw05/mybot_ws](https://github.com/richardw05/mybot_ws)
+* the docker people
+* the ROS people
+* the gazebo people
+* my mum
+* your mum
+* lol
