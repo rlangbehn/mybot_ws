@@ -33,6 +33,13 @@ Using [this](http://moorerobots.com/blog/post/1) as a base
 
 This is a fork of someone else's work, there is no license except that by using this repo, you agree that the contributors are not at all to blame for any outcomes; good, bad, or otherwise that you may create through the use of this repo.
 
+## links
+
+* [the video that sparked my interest](http://moorerobots.com/blog/post/1)
+* [the repo I forked this from](https://github.com/richardw05/mybot_ws)
+* [ROS source images from osrf](https://github.com/osrf/docker_images/tree/master/ros/melodic/ubuntu/bionic)
+* [A dockerfile i got some insipiration from](https://github.com/ChrisTimperley/TurtleBot.Dockerfile/blob/master/source/Dockerfile)
+
 ## Credits
 
 Credit goes to:
