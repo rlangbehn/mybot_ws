@@ -10,7 +10,7 @@ To make this great example of a simple but complete ROS/Gazebo implementation wo
 
 * Docker (created with docker 18)
 * homebrew
-* gazebo
+* gazebo [Homebrew guide here](http://gazebosim.org/tutorials?tut=install_on_mac)
 
 ## Hitting the ground and running
 
@@ -22,7 +22,7 @@ Using [this](http://moorerobots.com/blog/post/1) as a base
 
 1. ~~migrate mybot_ws to melodic~~
 1. ~~make it run in docker (single container)~~
-1. connect video into docker: https://wiki.ros.org/docker/Tutorials/GUI
+1. connect video into docker: [from here](https://wiki.ros.org/docker/Tutorials/GUI) & [maybe a docker file here](https://hub.docker.com/r/ct2034/vnc-ros-kinetic-full/~/dockerfile/)
 1. make it interract with gazebo on mac (host-only network ?)
 1. make gazebo work in a container
 1. make gazebo work with remote video
@@ -31,14 +31,17 @@ Using [this](http://moorerobots.com/blog/post/1) as a base
 
 ## Licence
 
-This is a fork of someone else's work, there is no license except that by using this repo, you agree that the contributors are not at all to blame for any outcomes; good, bad, or otherwise that you may create through the use of this repo.
+This is a fork of someone else's work, there is no license except that by using this repo, you agree that the contributors are not at all to blame for any outcomes; good, bad, or otherwise that you may create through the use of this repo. 
+
+Especially if you create an army of sentient machines that takes over the world - totally not responsible for that.
 
 ## links
 
-* [the video that sparked my interest](http://moorerobots.com/blog/post/1)
-* [the repo I forked this from](https://github.com/richardw05/mybot_ws)
+* [the video that sparked interest](http://moorerobots.com/blog/post/1)
+* [the repo this is forked from](https://github.com/richardw05/mybot_ws)
 * [ROS source images from osrf](https://github.com/osrf/docker_images/tree/master/ros/melodic/ubuntu/bionic)
-* [A dockerfile i got some insipiration from](https://github.com/ChrisTimperley/TurtleBot.Dockerfile/blob/master/source/Dockerfile)
+* [A dockerfile that's got some insipirational bits](https://github.com/ChrisTimperley/TurtleBot.Dockerfile/blob/master/source/Dockerfile)
+* [Another docker file](https://hub.docker.com/r/ct2034/vnc-ros-kinetic-full/~/dockerfile/)
 
 ## Credits
 

@@ -4,20 +4,32 @@
 
 Shape console (defaults etc)
 
-`CONTAINER_NAME=rossws`
+```bash
+IMAGE_NAME="rossws"
+CONTAINER_NAME="${IMAGE_NAME}_run"
+HOSTNAME="ros_full"
+```
 
 run roscontainer from osrf (full desktop!?)
 
-`docker run --rm -it osrf/ros:melodic-desktop-full`
+```bash
+docker run --rm -it osrf/ros:melodic-desktop-full
+```
 
 run this ros container with interactive shell
 
-`docker run --rm -it  --hostname ros_full --network host --name rossws_run rossws`
+```bash
+docker run --rm -it --hostname ${HOSTNAME} --network host --name ${CONTAINER_NAME} ${IMAGE_NAME}
+```
 
 run this ros container as a daemon
 
-`docker run --rm -d --network host --name rossws_run rossws`
+```bash
+docker run --rm -d --hostname ${HOSTNAME} --network host --name ${CONTAINER_NAME} ${IMAGE_NAME}
+```
 
 Build from dockerfile
 
-`docker build -t ${CONTAINER_NAME} .`
+```bash
+docker build -t ${IMAGE_NAME} .
+```
