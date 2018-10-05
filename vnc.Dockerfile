@@ -1,11 +1,7 @@
 # https://hub.docker.com/r/dorowu/ubuntu-desktop-lxde-vnc/
 FROM dorowu/ubuntu-desktop-lxde-vnc
 
-ENV VNC_PASSWORD=ubuntu
-ENV RESOLUTION=1920x1080
-
 ## -------- Pulled from  https://github.com/osrf/docker_images/blob/master/ros/melodic/ubuntu/bionic/ros-core/Dockerfile
-
 # install packages
 RUN apt-get update && \
     apt-get install -q -y \
@@ -19,19 +15,16 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 421C365BD9
 # setup sources.list
 RUN echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list
 
-# install bootstrap tools
-RUN apt-get update && apt-get install --no-install-recommends -y \
-    python-rosdep \
-    python-rosinstall \
-    python-vcstools
-
 # setup environment
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
-
-# -------- install ros packages
 ENV ROS_DISTRO melodic
-RUN apt-get install -y \
+
+# install ros packages
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    python-rosdep \
+    python-rosinstall \
+    python-vcstools \
     ros-melodic-desktop-full=1.4.1-0* \
     ros-melodic-ros-control \
     ros-melodic-ros-controllers \
@@ -55,13 +48,12 @@ ENV USERNAME=${USERNAME}
 ENV WORKDIR=${WORKDIR}
 ENV WORKSPACE=${WORKSPACE}
 
-
-# Tooling - network
-# RUN apt-get install iputils-ping -y
+# Forces this user :D
+ENV USER=${USERNAME}
 
 # Create user
 RUN useradd -ms /bin/bash $USERNAME
-RUN chpasswd ${USERNAME} ${VNC_PASSWORD}
+# RUN chpasswd ${USERNAME} ${VNC_PASSWORD}
 
 # Working dir
 WORKDIR ${WORKDIR}
@@ -87,5 +79,9 @@ RUN bash -c "source /opt/ros/melodic/setup.bash && \
              cd .. && \
              catkin_make && \
              rosdep update"
-          
+
+ENV VNC_PASSWORD=ubuntu
+ENV PASSWORD=${VNC_PASSWORD}
+ENV RESOLUTION=1920x1080
+
 USER root
