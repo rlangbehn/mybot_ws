@@ -8,8 +8,6 @@ Shape console (defaults etc)
 IMAGE_NAME="rossws"
 CONTAINER_NAME="${IMAGE_NAME}_run"
 HOSTNAME="ros_full"
-
-
 ```
 
 run ros container from dorowu/ubuntu-desktop-lxde-vnc
@@ -24,7 +22,7 @@ Build and run the VNC ROS master thing :)
 VNC_IMAGE_NAME="rossws_vnc"
 VNC_CONTAINER_NAME="${VNC_IMAGE_NAME}_run"
 docker build -t ${VNC_CONTAINER_NAME} -f vnc.Dockerfile .
-docker run -p 6080:80 -p 5900:5900 --rm -it --name ${VNC_IMAGE_NAME} ${VNC_CONTAINER_NAME}
+docker run -p 2222:22 -p 6080:80 -p 5900:5900 --rm --name ${VNC_IMAGE_NAME} ${VNC_CONTAINER_NAME}
 ```
 
 run roscontainer from osrf (full desktop!?)
