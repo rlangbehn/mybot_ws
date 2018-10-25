@@ -8,7 +8,7 @@ A small arduino measures the voltages of the incoming lines and turns them on/of
 
 The low power circuit is measured in code and is reported externally on digital pins for inticators and also on serial port if required.
 
-3 lines come in 
+3 lines come in
 
 ### Circuit diagram
 
@@ -27,4 +27,3 @@ empty and degrading | <3v
 empty | ~3.2v
 nominal | 3.7v
 charged | 4.2v
-

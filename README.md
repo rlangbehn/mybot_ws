@@ -32,7 +32,7 @@ Using [this](http://moorerobots.com/blog/post/1) as a base
 
 ## Licence
 
-This is a fork of someone else's work, there is no license except that by using this repo, you agree that the contributors are not at all to blame for any outcomes; good, bad, or otherwise that you may create through the use of this repo. 
+This is a fork of someone else's work, there is no license except that by using this repo, you agree that the contributors are not at all to blame for any outcomes; good, bad, or otherwise that you may create through the use of this repo.
 
 Especially if you create an army of sentient machines that takes over the world - totally not responsible for that.
 

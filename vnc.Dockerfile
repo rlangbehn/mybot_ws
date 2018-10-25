@@ -1,3 +1,4 @@
+# https://hub.docker.com/r/misterkoz/ros-melodic-with-vnc-and-gazebo/
 FROM misterkoz/ros-melodic-with-vnc-and-gazebo
 
 ## apt-install all your ros packages here
