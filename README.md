@@ -28,6 +28,7 @@ Using [this](http://moorerobots.com/blog/post/1) as a base
 1. make it interract with gazebo on mac (host-only network ?)
 1. make it all automatable
 1. customise the crap outa it for specific robot stuff
+1. update the docs to be able to run all of the origonal tutorials
 
 ## Licence
 
