@@ -55,23 +55,14 @@ ENV WORKDIR=${WORKDIR}
 # Forces this user :D
 ENV USER=${USERNAME}
 
-# Create user
+# Create user and give it sudo
 RUN useradd -ms /bin/bash $USERNAME
 RUN usermod -aG sudo ${USERNAME}
 
 # Working dir
 WORKDIR ${WORKDIR}
 
-
-# Init ros project space
-RUN chown -R ${USERNAME}:${USERNAME} /home/ubuntu
-RUN adduser ${USERNAME} sudo
-RUN apt-get install ssh
+# Get SSH running
 RUN service ssh restart
 RUN update-rc.d ssh defaults
 RUN update-rc.d ssh enable 2 3 4
-
-
-# Make sure all the ros permissions are good
-RUN rosdep init
-RUN rosdep fix-permissions

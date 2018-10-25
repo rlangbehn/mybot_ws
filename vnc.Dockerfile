@@ -5,7 +5,12 @@ FROM misterkoz/ros-melodic-with-vnc-and-gazebo
 # Copy files across
 ARG WORKSPACE=/home/ubuntu/catkin_ws
 ENV WORKSPACE=${WORKSPACE}
+
 COPY project_root ${WORKSPACE}
+RUN chown -R ${USERNAME}:${USERNAME} ${WORKSPACE}
+
+RUN rosdep init
+RUN rosdep fix-permissions
 
 # Assume Ubuntu user - we don't want ROS running as root!
 USER ${USERNAME}
