@@ -2,33 +2,55 @@
 
 Forked from : [richardw05/mybot_ws](https://github.com/richardw05/mybot_ws)
 
-## The Goal
+## WTF? (What's this for?)
 
-To make this great example of a simple but complete ROS/Gazebo implementation work with ROS Melodic and run on docker on mac, linux and probably windows
+I wanted to build a ROS powered robot called Speedy and I needed a stable development environment that would work on my mac (and possibly windows) and I needed a walkthrough. My ultimate goal is to simulate a complete robot and use a complete virutal environment to implement machine learning for improvements.
+
+I couldn't find much by way of a walkthrough but I did find [this excellent tutorial](http://moorerobots.com/blog/post/1) but it was a little out of date and also wasn't going to work on OSX. This should work on OSX and Linux.
+
+I created a docker environment that a person could feasbily use to run through the tutorials including a complete all-in-one docker container that is used as a parent.
 
 ## Requirements
 
 * Docker (created with docker 18)
-* homebrew
-* gazebo [Homebrew guide here](http://gazebosim.org/tutorials?tut=install_on_mac)
+* Bash
+* patience
 
-## Hitting the ground and running
+## Howto
 
-Todo
+This repo contains all the the code to run the tutorials on the [tutorials here](http://moorerobots.com/blog/post/1) in docker, on the mac, thats what it does.
 
-## Todo
+### To run the container
 
-Using [this](http://moorerobots.com/blog/post/1) as a base
+* In your console type `make vnc-run` and wait for the build to finish
+* Open a browser to [http://localhost:6080](http://localhost:6080)
+* login as `ubuntu:ununtu` in vnc
+* open up a terminal `menu/System Tools/LXTermal` run `roslaunch mybot_gazebo mybot_world.launch` (tab completion works)
+* wait for gazebo to load
+* open up another terminal and execute the `turn.sh` file in the `catkin_ws` folder
+* follow the tutorials to learn more
 
-1. ~~migrate mybot_ws to melodic~~
-1. ~~make it run in docker (single container)~~
-1. ~~connect video into docker: [from here](https://wiki.ros.org/docker/Tutorials/GUI) & [maybe a docker file here](https://hub.docker.com/r/ct2034/vnc-ros-kinetic-full/~/dockerfile/)~~
-1. ~~make gazebo work in a container~~
-1. ~~make gazebo work with remote video~~
-1. make it interract with gazebo on mac (host-only network ?)
-1. make it all automatable
-1. customise the crap outa it for specific robot stuff
-1. update the docs to be able to run all of the origonal tutorials
+### To run the container with your own project folder
+
+The makefile is just there to simplify the commands to run the docker container, tweak it to your needs.
+
+To mount in your own code, change the line in the makefile from:
+
+```bash
+docker run -p 2222:22 -p 6080:80 -p 5900:5900 --rm --name ${VNC_PARENT_CONTAINER_NAME} ${VNC_PARENT_IMAGE_NAME}
+```
+
+To something that contains a volume mount:
+
+```bash
+docker run -p -v my_cool_local_folder:/home/ubuntu/my_cool_target_folder 2222:22 -p 6080:80 -p 5900:5900 --rm --name ${VNC_PARENT_CONTAINER_NAME} ${VNC_PARENT_IMAGE_NAME}
+```
+
+## More detail
+
+Everything is in the Makefile. To get a detailed list type `make` or `make help` and it will say what each make target does.
+
+The repo contains all of the work to date of building the 
 
 ## Licence
 
