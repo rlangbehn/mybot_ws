@@ -31,6 +31,9 @@ vnc-parent-push:           ## Pushes the vnc parent image
 	docker login
 	docker push ${VNC_PARENT_IMAGE_NAME}
 
+##vnc-parent-build-push:      Builds and pushes the vnc parent image
+vnc-parent-build-push: vnc-parent-build vnc-parent-push
+
 vnc-parent-run:            ## Runs the vnc parent as a container
 	docker run -p 2222:22 -p 6080:80 -p 5900:5900 --rm --name ${VNC_PARENT_CONTAINER_NAME} ${VNC_PARENT_IMAGE_NAME}
 
