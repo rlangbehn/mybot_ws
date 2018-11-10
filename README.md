@@ -24,7 +24,13 @@ This repo contains all the the code to run the tutorials on the [tutorials here]
 
 * In your console type `make vnc-run` and wait for the build to finish
 * Open a browser to [http://localhost:6080](http://localhost:6080)
-* login as `ubuntu:ununtu` in vnc
+* login as `ubuntu:ununtu` in the http vnc client
+* or ssh to the container on port 222 with `ssh -v -p 2222 ubuntu@localhost`
+
+### To run the tutorials
+
+* run the container 
+* login as `ubuntu:ununtu` in the http vnc client
 * open up a terminal `menu/System Tools/LXTermal` run `roslaunch mybot_gazebo mybot_world.launch` (tab completion works)
 * wait for gazebo to load
 * open up another terminal and execute the `turn.sh` file in the `catkin_ws` folder
