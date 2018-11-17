@@ -29,34 +29,39 @@ This repo contains all the the code to run the tutorials on the [tutorials here]
 
 ### To run the tutorials
 
-* run the container 
-* login as `ubuntu:ununtu` in the http vnc client
-* open up a terminal `menu/System Tools/LXTermal` run `roslaunch mybot_gazebo mybot_world.launch` (tab completion works)
-* wait for gazebo to load
-* open up another terminal and execute the `turn.sh` file in the `catkin_ws` folder
-* follow the tutorials to learn more
+* Run the container
+* Login as `ubuntu:ununtu` in the http vnc client
+* Open up a terminal `menu/System Tools/LXTermal` run `roslaunch mybot_gazebo mybot_world.launch` (tab completion works)
+* Wait for gazebo to load
+* Open up another terminal and execute the `turn.sh` file in the `catkin_ws` folder
+* Follow the tutorials to learn more
 
-### To run the container with your own project folder
+## To run the container with your own project folder
 
-The makefile is just there to simplify the commands to run the docker container, tweak it to your needs.
+To mount in your own code, you should run this with a docker-compose setup.
 
-To mount in your own code, change the line in the makefile from:
+The docker-compose file opens up all the correct ports and maps the project_root folder into the container's folder. It makes use of the `vimrc` and `bash_profile` files to make things a bit tidier. Using this method, the project isn't build from the start so I've added in a build script, the build script also calls in the `/home/ubuntu/catkin_ws/devel/setup.bash` file so ROS commands have tab completion.
 
-```bash
-docker run -p 2222:22 -p 6080:80 -p 5900:5900 --rm --name ${VNC_PARENT_CONTAINER_NAME} ${VNC_PARENT_IMAGE_NAME}
-```
+### Steps
 
-To something that contains a volume mount:
+1. Copy these files into your code repo:
+    * `docker-compose.yml`
+    * `composefiles/vnc.dev.Dockerfile`
+    * `composefiles/vimrc`
+    * `composefiles/bash_profile`
+2. Put your code files into a sub folder called `project_root` or create your own folder and update the `docker-compose.yml` file folder reference
+3. Build the compose container with `# docker-compose build`
+4. Run the compose container with `# docker-compose up`
+5. ssh into the container `ssh -v -p 2222 ubuntu@localhost` password is set in the compose file - defaults to `ubuntu`
+6. Cd into the `catkin_ws` folder and run the build `# cd catkin_ws/ && ./build.sh`
 
-```bash
-docker run -p -v my_cool_local_folder:/home/ubuntu/my_cool_target_folder 2222:22 -p 6080:80 -p 5900:5900 --rm --name ${VNC_PARENT_CONTAINER_NAME} ${VNC_PARENT_IMAGE_NAME}
-```
+You can copy a handful of files into your own code repo to make this work without all the extra bits.
 
 ## More detail
 
 Everything is in the Makefile. To get a detailed list type `make` or `make help` and it will say what each make target does.
 
-The repo contains all of the work to date of building the 
+The makefile is just there to simplify the commands to run the docker container, tweak it to your needs.
 
 ## Licence
 

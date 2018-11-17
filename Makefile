@@ -53,6 +53,16 @@ vnc-run:                   ## Runs the vnc containers
 vnc-build-run: vnc-build vnc-run
 
 ##
+##Development VNC Container
+##--------------------------------------------------------
+
+compose-build:             ## Builds the child VNC container
+	docker-compose build
+
+compose-up:                ## Runs the vnc containers
+	docker-compose up
+
+##
 ##ROS Desktop images
 ##--------------------------------------------------------
 desktop-build:             ## Build Desktop

@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  all-in-one:
+    build:
+      context: ./
+      dockerfile: composefiles/vnc.dev.Dockerfile
+    hostname: all-in-one
+    domainname: all-in-one.local
+    volumes:
+      - ./project_root:/home/ubuntu/catkin_ws
+    ports:
+      - "5900:5900"
+      - "2222:22"
+    environment:
+      VNC_PASSWORD: ubuntu
+      PASSWORD: ubuntu
+      RESOLUTION: 1920x1080
+      WORKSPACE: /home/ubuntu/catkin_ws
