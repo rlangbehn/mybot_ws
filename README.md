@@ -4,7 +4,7 @@ Forked from : [richardw05/mybot_ws](https://github.com/richardw05/mybot_ws)
 
 ## WTF? (What's this for?)
 
-I wanted to build a ROS powered robot called Speedy and I needed a stable development environment that would work on my mac (and possibly windows) and I needed a walkthrough. My ultimate goal is to simulate a complete robot and use a complete virutal environment to implement machine learning for improvements.
+I wanted to build a ROS powered robot and I needed a stable development environment that would work on my mac or Windows/WSL and I needed a walkthrough. My ultimate goal is to simulate a complete robot and use a complete virutal environment to implement machine learning for improvements.
 
 I couldn't find much by way of a walkthrough but I did find [this excellent tutorial](http://moorerobots.com/blog/post/1) but it was a little out of date and also wasn't going to work on OSX. This should work on OSX and Linux.
 
@@ -12,24 +12,21 @@ I created a docker environment that a person could feasbily use to run through t
 
 ## Requirements
 
-* Docker (created with docker 18)
+* Docker
 * Bash
-* patience
 
 ## Howto
 
-This repo contains all the the code to run the tutorials on the [tutorials here](http://moorerobots.com/blog/post/1) in docker, on the mac, thats what it does.
-
 ### To run the container
 
-* In your console type `make vnc-run` and wait for the build to finish
+* In your console type `make up` and wait for the build to finish
 * Open a browser to [http://localhost:6080](http://localhost:6080)
 * login as `ubuntu:ununtu` in the http vnc client
 * or ssh to the container on port 222 with `ssh -v -p 2222 ubuntu@localhost`
 
 ### To run the tutorials
 
-* Run the container
+* Run the container with `make up`
 * Login as `ubuntu:ununtu` in the http vnc client
 * Open up a terminal `menu/System Tools/LXTermal` run `roslaunch mybot_gazebo mybot_world.launch` (tab completion works)
 * Wait for gazebo to load
@@ -38,24 +35,7 @@ This repo contains all the the code to run the tutorials on the [tutorials here]
 
 ## To run the container with your own project folder
 
-To mount in your own code, you should run this with a docker-compose setup.
-
-The docker-compose file opens up all the correct ports and maps the project_root folder into the container's folder. It makes use of the `vimrc` and `bash_profile` files to make things a bit tidier. Using this method, the project isn't build from the start so I've added in a build script, the build script also calls in the `/home/ubuntu/catkin_ws/devel/setup.bash` file so ROS commands have tab completion.
-
-### Steps
-
-1. Copy these files into your code repo:
-    * `docker-compose.yml`
-    * `composefiles/vnc.dev.Dockerfile`
-    * `composefiles/vimrc`
-    * `composefiles/bash_profile`
-2. Put your code files into a sub folder called `project_root` or create your own folder and update the `docker-compose.yml` file folder reference
-3. Build the compose container with `# docker-compose build`
-4. Run the compose container with `# docker-compose up`
-5. ssh into the container `ssh -v -p 2222 ubuntu@localhost` password is set in the compose file - defaults to `ubuntu`
-6. Cd into the `catkin_ws` folder and run the build `# cd catkin_ws/ && ./build.sh`
-
-You can copy a handful of files into your own code repo to make this work without all the extra bits.
+Replace the `project_root` directory with your own.
 
 ## More detail
 
