@@ -21,5 +21,8 @@ RUN bash -c "source /opt/ros/melodic/setup.bash && \
              catkin_make && \
              rosdep update"
 
+COPY env_files/bash_profile /home/ubuntu/.bashrc
+COPY env_files/vimrc /home/ubuntu/.vimrc
+
 # the startup script needs to run as root
 USER root
