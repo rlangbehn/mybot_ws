@@ -9,8 +9,6 @@ services:
     domainname: all-in-one.local
     volumes:
       - ./project_root:/home/ubuntu/catkin_ws
-      - ./env_files/bash_profile:/home/ubuntu/.bashrc
-      - ./env_files/vimrc:/home/ubuntu/.vimrc
     ports:
       - "5900:5900"
       - "2222:22"
