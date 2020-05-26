@@ -10,6 +10,7 @@ services:
     volumes:
       - ./project_root:/home/ubuntu/catkin_ws
     ports:
+      - "6080:80"
       - "5900:5900"
       - "2222:22"
     environment:
