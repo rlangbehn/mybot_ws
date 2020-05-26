@@ -1,3 +1,5 @@
+#!/bin/bash
+
 rostopic pub /cmd_vel geometry_msgs/Twist "linear:
   x: 0.2
   y: 0.0
