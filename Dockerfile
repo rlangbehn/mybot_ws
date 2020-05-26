@@ -15,11 +15,8 @@ USER ${USERNAME}
 RUN rosdep update
 
 RUN bash -c "source /opt/ros/melodic/setup.bash && \
-             cd ${WORKSPACE}/src && \
-             catkin_init_workspace && \
-             cd .. && \
-             catkin_make && \
-             rosdep update"
+             cd ${WORKSPACE} && \
+             catkin_make"
 
 COPY env_files/bash_profile /home/ubuntu/.bashrc
 COPY env_files/vimrc /home/ubuntu/.vimrc
